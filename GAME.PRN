@@ -1,0 +1,35 @@
+
+
+ 0100           ORG 0100H
+                
+ 0100 AF              XRA A
+ 0101 67              MOV H, A
+ 0102 DBFF            IN 0FFH
+ 0104 6F              MOV L, A
+ 0105 F9              SPHL
+ 0106 AF              XRA A
+ 0107 81              ADD C
+ 0108 C21301          JNZ 00113H
+ 010B 53              MOV D, E
+ 010C DBFF            IN 0FFH
+ 010E 5F              MOV E, A
+ 010F AA              XRA D
+ 0110 C22101          JNZ 00121H
+ 0113 39              DAD SP
+ 0114 D20601          JNC 00106H
+ 0117 78              MOV A, B
+ 0118 07              RLC
+ 0119 47              MOV B, A
+ 011A D3FF            OUT 0FFH
+ 011C AF              XRA A
+ 011D 4F              MOV C, A
+ 011E C30601          JMP 00106H
+ 0121 A8              XRA B
+ 0122 47              MOV B, A
+ 0123 D3FF            OUT 0FFH
+ 0125 AF              XRA A
+ 0126 67              MOV H, A
+ 0127 2F              CMA
+ 0128 4F              MOV C, A
+ 0129 C30601          JMP 00106H
+
